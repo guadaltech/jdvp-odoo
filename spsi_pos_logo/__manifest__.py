@@ -31,7 +31,7 @@
     'category': 'Point Of Sale',
     'author': 'SPSI Sistemas',
     'company': 'SPSI Sistemas',
-    'website': "http://www.cybrosys.com",
+    # 'website': "http://www.cybrosys.com",
     'depends': ['base', 'point_of_sale'],
     'data': [
         'views/pos_config_image_view.xml',
@@ -39,7 +39,7 @@
     ],
     'qweb': ['static/src/xml/pos_ticket_view.xml',
              'static/src/xml/pos_screen_image_view.xml'],
-    'images': ['static/description/banner.jpg'],
+    'images': ['static/description/Logo-256.png'],
     'license': 'AGPL-3',
     'demo': [],
     'installable': True,

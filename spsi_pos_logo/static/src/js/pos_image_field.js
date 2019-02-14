@@ -1,4 +1,4 @@
-odoo.define("point_of_sale_logo.image", function (require) {
+odoo.define("spsi_pos_logo.image", function (require) {
     "use strict";
     var PosBaseWidget = require('point_of_sale.chrome');
     var screens = require('point_of_sale.screens');
