@@ -150,6 +150,18 @@
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
                 </table>
+                <br/>
+                <table class='receipt-footer-msg'>
+                    <colgroup>
+                        <col width='100%' />
+                    </colgroup>
+                    <tr><td>Change:</td>
+                        <td style='text-align:center'>
+                         No se admiten devoluciones después de 15 días de la compra,
+                         o se se ha consumido más del 20% del producto.
+                         Para más información www.juandelvalle.es
+                        </td></tr>
+                </table>
             </div>
         </t>
     </t>
