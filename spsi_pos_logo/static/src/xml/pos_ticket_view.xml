@@ -150,7 +150,15 @@
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
                 </table>
-                <br/>
+
+                <t t-if="receipt.footer">
+                    <br />
+                    <div style='text-align:center'>
+                        <t t-esc="receipt.footer" />
+                    </div>
+                </t>
+
+                <!-- <br/>
                 <table class='receipt-footer-msg'>
                     <colgroup>
                         <col width='100%' />
@@ -162,7 +170,7 @@
                          Para más información www.juandelvalle.es
                         </td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </t>
     </t>
