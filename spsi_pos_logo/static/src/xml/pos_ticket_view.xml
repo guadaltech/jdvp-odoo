@@ -72,11 +72,11 @@
                         <!-- <col width='15%' /> -->
                         <col width='30%' />
                     </colgroup>
-                    <tr style="border-bottom: 1px solid rgb(0, 0, 0);">
+                    <tr style="border-bottom: 1px solid rgb(0, 0, 0); padding-top: 10px;">
                         <th>Qty</th>
                         <th>Name</th>
-                        <th>Price</th>
-                        <!-- <th style='text-align:right'>TOTAL</th> -->
+                        <!-- <th>Price</th> -->
+                        <th style='text-align:right'>Price</th>
                     </tr>
                     <tr t-foreach="orderlines" t-as="orderline">
                         <td>
