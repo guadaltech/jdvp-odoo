@@ -41,7 +41,7 @@
                     <div style="width: 50%; float: left; text-align:left;">
                         <!-- No. & date -->
                         <t t-esc="moment().format('L LT')"/><br />
-                        <t t-esc="order.name"/>
+                        <t t-esc="order.name"/><br />
                     </div>
                     <div style="width: 50%; float: right; text-align:right;">
                         <!-- Customer -->
@@ -49,7 +49,7 @@
                         <t t-if="client">
                             <t t-esc="client['name']"/><br />
                             <t t-if="client['vat']">
-                                VAT: <t t-esc="client['vat']"/>
+                                VAT: <t t-esc="client['vat']"/><br />
                             </t>
                         </t>
                     </div>
@@ -72,12 +72,12 @@
                         <!-- <col width='15%' /> -->
                         <col width='30%' />
                     </colgroup>
-                    <!-- <tr style="border: 1px solid rgb(0, 0, 0);">
+                    <tr style="border-bottom: 1px solid rgb(0, 0, 0);">
                         <th>Qty</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th style='text-align:right'>TOTAL</th>
-                    </tr> -->
+                        <!-- <th style='text-align:right'>TOTAL</th> -->
+                    </tr>
                     <tr t-foreach="orderlines" t-as="orderline">
                         <td>
                             <t t-esc="orderline.get_quantity_str_with_unit()"/>
