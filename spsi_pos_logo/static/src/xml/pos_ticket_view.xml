@@ -5,7 +5,7 @@
             <div class="pos-sale-ticket">
                 <!-- Ticket header -->
                 <div>
-                    <div style="width: 55%; float: left; padding: 20px 0px;">
+                    <div style="width: 60%; float: left; padding: 20px 0px;">
                         <!-- Company & Shop -->
                         <t t-if="widget.pos.company.name">
                             <t t-esc="widget.pos.company.name"/><br />
@@ -22,7 +22,8 @@
                         </t>
                         Cashier: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
                     </div>
-                    <div style="width: 45%;float: left; ">
+                    <!-- Image -->
+                    <div style="width: 40%;float: left; ">
                         <t t-if='widget.pos.config.image'>
                             <img t-att-src="a2" style="width:100%"/>
                         </t>
@@ -31,10 +32,23 @@
                         </t>
                     </div>
                 </div>
-                <!-- No. & Date -->
-                <div style='width:100%;text-align:center'>
-                    <t t-esc="order.name"/> <t t-esc="moment().format('L LT')"/>
+
+                <!-- Ticket info -->
+                <div name="order_info" style='width:100%'>
+                    <div style='text-align:center'>
+                        <t t-esc="moment().format('L LT')"/> <t t-esc="order.name"/>
+                    </div>
+                    <t t-set="client" t-value="order.get_client()"/>
+                    <t t-if="client and widget.pos.config.receipt_customer_vat">
+                        <t t-set="client" t-value="order.get_client()"/>
+                        Customer: <t t-esc="client['name']"/><br />
+                        Phone (mobile): <t t-esc="client['phone'] || client['mobile'] || ''"/>
+                    </t>
+                    <br />
                 </div>
+                <!-- <div style='width:100%;text-align:center'>
+                    <t t-esc="order.name"/> <t t-esc="moment().format('L LT')"/>
+                </div> -->
                 <br />
 
                 <!-- Header -->
