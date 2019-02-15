@@ -54,28 +54,6 @@
                         </t>
                     </div>
                 </div>
-
-                <!-- No. & date -->
-                <!-- <div style='width:100%;text-align:center'>
-                    <t t-esc="order.name"/> <t t-esc="moment().format('L LT')"/>
-                </div> -->
-                <!-- <br /> -->
-
-                <!-- Customer -->
-                <!-- <div style='width:100%'>
-                    <t t-set="client" t-value="order.get_client()"/>
-                    <t t-if="client and widget.pos.config.receipt_customer_vat">
-                    <t t-if="client">
-                        <t t-set="client" t-value="order.get_client()"/>
-                        Customer: <t t-esc="client['name']"/><br />
-                        <t t-if="client['vat']">
-                            <t t-esc="widget.pos.company.name"/><br />
-                        </t>
-                        VAT: <t t-esc="client['phone'] || client['mobile'] || ''"/>
-                    </t>
-                    <br />
-                </div> -->
-
                 <br />
 
                 <!-- Header -->
@@ -89,9 +67,9 @@
                 <!-- Items -->
                 <table class='receipt-orderlines'>
                     <colgroup>
-                        <col width='40%' />
                         <col width='15%' />
-                        <col width='15%' />
+                        <col width='55%' />
+                        <!-- <col width='15%' /> -->
                         <col width='30%' />
                     </colgroup>
                     <!-- <tr style="border: 1px solid rgb(0, 0, 0);">
