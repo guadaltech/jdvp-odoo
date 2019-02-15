@@ -3,26 +3,9 @@
     <t t-extend="PosTicket">
         <t t-jquery='.pos-sale-ticket' t-operation='replace'>
             <div class="pos-sale-ticket">
-                <!-- Ticket header -->
-                <div>
-                    <div style="width: 60%; float: left; padding: 20px 0px;">
-                        <!-- Company & Shop -->
-                        <t t-if="widget.pos.company.name">
-                            <t t-esc="widget.pos.company.name"/><br />
-                        </t>
-                        <t t-if="widget.pos.config.name">
-                            <t t-esc="widget.pos.config.name"/><br />
-                        </t>
-                        <!-- Company data -->
-                        <t t-if="widget.pos.company.phone">
-                            <t t-esc="widget.pos.company.phone"/><br />
-                        </t>
-                        <t t-if="widget.pos.company.email">
-                            <t t-esc="widget.pos.company.email"/><br />
-                        </t>
-                        Cashier: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
-                    </div>
-                    <!-- Image -->
+                <!-- Image -->
+                <!-- <div>
+                    <div style="width: 30%;float: left; "></div>
                     <div style="width: 40%;float: left; ">
                         <t t-if='widget.pos.config.image'>
                             <img t-att-src="a2" style="width:100%"/>
@@ -31,7 +14,42 @@
                             <img src='/web/binary/company_logo' style="width:100%"/>
                         </t>
                     </div>
+                    <div style="width: 30%;float: left; "></div>
+                </div> -->
+
+                <!-- Ticket header -->
+                <div>
+                    <div style="width: 65%; float: left; padding: 20px 0px;">
+                        <!-- Company & Shop -->
+                        <t t-if="widget.pos.company.name">
+                            <t t-esc="widget.pos.company.name"/><br />
+                        </t>
+                        <t t-if="widget.pos.company.vat">
+                            VAT: <t t-esc="widget.pos.company.vat"/><br />
+                        </t>
+                        <t t-if="widget.pos.config.name">
+                            <t t-esc="widget.pos.config.name"/><br />
+                        </t>
+                        <!-- Company data -->
+                        <t t-if="widget.pos.company.phone">
+                            Tel: <t t-esc="widget.pos.company.phone"/><br />
+                        </t>
+                        <t t-if="widget.pos.company.email">
+                            <t t-esc="widget.pos.company.email"/><br />
+                        </t>
+                        User: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
+                    </div>
+                    <!-- Image -->
+                    <div style="width: 35%;float: left; ">
+                        <t t-if='widget.pos.config.image'>
+                            <img t-att-src="a2" style="width:100%"/>
+                        </t>
+                        <t t-if='!widget.pos.config.image'>
+                            <img src='/web/binary/company_logo' style="width:100%"/>
+                        </t>
+                    </div>
                 </div>
+                <br />
 
                 <!-- Ticket info -->
                 <div name="order_info" style='width:100%'>
@@ -39,10 +57,11 @@
                         <t t-esc="moment().format('L LT')"/> <t t-esc="order.name"/>
                     </div>
                     <t t-set="client" t-value="order.get_client()"/>
-                    <t t-if="client and widget.pos.config.receipt_customer_vat">
-                        <t t-set="client" t-value="order.get_client()"/>
+                    <!-- <t t-if="client and widget.pos.config.receipt_customer_vat"> -->
+                    <t t-if="client">
+                        <!-- <t t-set="client" t-value="order.get_client()"/> -->
                         Customer: <t t-esc="client['name']"/><br />
-                        Phone (mobile): <t t-esc="client['phone'] || client['mobile'] || ''"/>
+                        VAT: <t t-esc="client['phone'] || client['mobile'] || ''"/>
                     </t>
                     <br />
                 </div>
@@ -71,7 +90,7 @@
                         <th>Name</th>
                         <th>Qty</th>
                         <th>Price</th>
-                        <th>Value</th>
+                        <th style='text-align:right'>TOTAL</th>
                     </tr>
                     <tr t-foreach="orderlines" t-as="orderline">
                         <td>
