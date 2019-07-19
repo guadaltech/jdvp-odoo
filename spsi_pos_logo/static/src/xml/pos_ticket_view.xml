@@ -56,10 +56,9 @@
                 <br />
 
                 <!-- No. (order.name) Simplified invoice -->
-                <div>
-                    <div style="width: 100%; text-align:center;">
-                        <t t-esc="order.name"/><br />
-                    </div>
+                <div style="text-align:center;">
+                    <t t-esc="order.name"/>
+                    <br />
                 </div>
                 <br />
 
