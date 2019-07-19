@@ -37,6 +37,13 @@
                 </div>
                 <br />
 
+                <!-- No. (order.name) Simplified invoice -->
+                <div style="text-align:center;">
+                    <t t-esc="order.name"/>
+                    <br />
+                </div>
+                <br />
+
                 <div>
                     <div style="width: 50%; float: left; text-align:left;">
                         <!-- Date -->
@@ -52,13 +59,6 @@
                             </t>
                         </t>
                     </div>
-                </div>
-                <br />
-
-                <!-- No. (order.name) Simplified invoice -->
-                <div style="text-align:center;">
-                    <t t-esc="order.name"/>
-                    <br />
                 </div>
                 <br />
 
