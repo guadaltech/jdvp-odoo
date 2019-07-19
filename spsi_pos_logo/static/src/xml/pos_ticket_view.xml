@@ -15,7 +15,7 @@
                         </t>
                     </div>
                     <!-- Company -->
-                    <div style="width: 65%; float: left; padding: 20px 0px;">
+                    <div style="width: 65%; float: left; padding: 20px 0px; text-align:right;">
                         <!-- Company & Shop -->
                         <t t-if="widget.pos.company.name">
                             <t t-esc="widget.pos.company.name"/><br />
