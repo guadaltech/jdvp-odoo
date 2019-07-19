@@ -39,9 +39,8 @@
 
                 <div>
                     <div style="width: 50%; float: left; text-align:left;">
-                        <!-- No. & date -->
+                        <!-- Date -->
                         <t t-esc="moment().format('L LT')"/><br />
-                        <t t-esc="order.name"/><br />
                     </div>
                     <div style="width: 50%; float: right; text-align:right;">
                         <!-- Customer -->
@@ -52,6 +51,14 @@
                                 VAT: <t t-esc="client['vat']"/><br />
                             </t>
                         </t>
+                    </div>
+                </div>
+                <br />
+
+                <!-- No. (order.name) Simplified invoice -->
+                <div>
+                    <div style="width: 100%; text-align:center;">
+                        <t t-esc="order.name"/><br />
                     </div>
                 </div>
                 <br />
