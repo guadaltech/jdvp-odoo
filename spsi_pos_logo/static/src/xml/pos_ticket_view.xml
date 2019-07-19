@@ -5,7 +5,17 @@
             <div class="pos-sale-ticket">
                 <!-- Ticket header -->
                 <div>
-                    <div style="width: 65%; float: left; padding: 20px 0px;">
+                    <!-- Image -->
+                    <div style="width: 35%;float: left; ">
+                        <t t-if='widget.pos.config.image'>
+                            <img t-att-src="a2" style="width:100%"/>
+                        </t>
+                        <t t-if='!widget.pos.config.image'>
+                            <img src='/web/binary/company_logo' style="width:100%"/>
+                        </t>
+                    </div>
+                    <!-- Company -->
+                    <div style="width: 65%; float: left; padding: 20px 0px; text-align:right;">
                         <!-- Company & Shop -->
                         <t t-if="widget.pos.company.name">
                             <t t-esc="widget.pos.company.name"/><br />
@@ -25,23 +35,20 @@
                         </t>
                         User: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
                     </div>
-                    <!-- Image -->
-                    <div style="width: 35%;float: left; ">
-                        <t t-if='widget.pos.config.image'>
-                            <img t-att-src="a2" style="width:100%"/>
-                        </t>
-                        <t t-if='!widget.pos.config.image'>
-                            <img src='/web/binary/company_logo' style="width:100%"/>
-                        </t>
-                    </div>
+                </div>
+                <br />
+
+                <!-- No. (order.name) Simplified invoice -->
+                <div style="text-align:center;">
+                    <t t-esc="order.name"/>
+                    <br />
                 </div>
                 <br />
 
                 <div>
                     <div style="width: 50%; float: left; text-align:left;">
-                        <!-- No. & date -->
+                        <!-- Date -->
                         <t t-esc="moment().format('L LT')"/><br />
-                        <t t-esc="order.name"/><br />
                     </div>
                     <div style="width: 50%; float: right; text-align:right;">
                         <!-- Customer -->
