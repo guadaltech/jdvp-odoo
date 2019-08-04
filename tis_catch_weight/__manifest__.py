@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2017-Today  Technaureus Info Solutions(<http://technaureus.com/>).
 {
-    'name': 'Catch Weight Management',
-    'version': '12.0.0.3',
+    'name': 'Catch Weight Management(v1.0)',
+    'version': '12.0.0.4',
     'sequence': 1,
     'category': 'Sales',
     'summary': 'Catch Weight Management',
@@ -11,7 +11,7 @@
 """,
     'author': 'Technaureus Info Solutions Pvt. Ltd.',
     'website': 'http://www.technaureus.com/',
-    'price': 130,
+    'price': 149,
     'currency': 'EUR',
     'license': 'Other proprietary',
     'depends': [
@@ -38,7 +38,7 @@
         'report/report_stockpicking_operations.xml',
         'report/report_deliveryslip.xml',
     ],
-    'images': ['images/main_screenshot.png'],
+    'images': ['images/main_screenshot.gif'],
     'installable': True,
     'auto_install': False,
     'application': True
