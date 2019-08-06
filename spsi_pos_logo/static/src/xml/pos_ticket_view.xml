@@ -40,6 +40,7 @@
 
                 <!-- No. (order.name) Simplified invoice -->
                 <div style="text-align:center;">
+                    <span>Simplified invoice: </span>
                     <t t-esc="order.name"/>
                     <br />
                 </div>
@@ -126,8 +127,10 @@
                     </tr>
                     <t t-foreach="order.get_tax_details()" t-as="taxdetail">
                         <tr>
-                            <td></td>
                             <td><t t-esc="taxdetail.name" /></td>
+                            <td>
+                                <t t-esc="widget.format_currency(order.get_base_by_tax()[taxdetail.tax.id])" />
+                            </td>
                             <td style='text-align:right'>
                                 <t t-esc="widget.format_currency(taxdetail.amount)"/>
                             </td>
