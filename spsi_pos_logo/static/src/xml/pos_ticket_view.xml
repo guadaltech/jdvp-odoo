@@ -40,7 +40,7 @@
 
                 <!-- No. (order.name) Simplified invoice -->
                 <div style="text-align:center;">
-                    <span>Simplified invoice: </span>
+                    <!-- <span>Simplified invoice: </span> -->
                     <t t-esc="order.name"/>
                     <br />
                 </div>

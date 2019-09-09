@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<record model="ir.ui.view" id="ace_view_pos_config_form">
+	   <field name="name">pos.config.form.view.inherit</field>
+	   <field name="model">pos.config</field>
+	   <field name="inherit_id" ref="point_of_sale.pos_config_view_form"></field>
+	   <field name="arch" type="xml">
+		   <div id="category_reference" position="after">
+              <div class="col-xs-12 col-md-9 o_setting_box" id="partial_pay">
+                  <div class="o_setting_left_pane">
+                      <field name="enable_partial_payment"/>
+                  </div>
+                  <div class="o_setting_right_pane">
+                      <label for="enable_partial_payment"/>
+                      <div class="text-muted" id="reorder_order">
+                         Partially Pay for order
+                      </div>
+                      <div class="content-group mt16" attrs="{'invisible' : [('enable_partial_payment', '=', False)]}">
+                          <div class="row mt16">
+                              <label string="Last Days" for="last_days" class="col-md-3 o_light_label"/>
+                              <field name="last_days"/>
+                          </div>
+                          <div class="row mt16">
+                              <label string="Record Per Page" for="record_per_page" class="col-md-3 o_light_label"/>
+                              <field name="record_per_page"/>
+                          </div>
+                          <div class="row mt16">
+                              <label string="Paid Amount Product" for="prod_for_payment" class="col-md-3 o_light_label"/>
+                              <field name="prod_for_payment" attrs="{'invisible':[('enable_partial_payment','=',False)],
+                                    'required':[('enable_partial_payment','=',True)]}"/>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+		</field>
+	</record>
+
+	<record id="order_inherited_form_view" model="ir.ui.view">
+	    <field name="name">pos.order.inherited.view</field>
+	    <field name="model">pos.order</field>
+	    <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+	    <field name="arch" type="xml">
+	        <field name="amount_total" position="after">
+	            <field name="amount_due"/>
+	        </field>
+	    </field>
+	</record>
+
+
+	<record id="res_partner_view_form_aspl" model="ir.ui.view">
+	    <field name="name">res.partner.view.form.aspl</field>
+	    <field name="model">res.partner</field>
+	    <field name="inherit_id" ref="base.view_partner_form"/>
+	    <field name="arch" type="xml">
+	        <field name="vat" position="after">
+	            <field name="credit_limit"/>
+                <field name="remaining_credit_limit"/>
+	        </field>
+	    </field>
+	</record>
+
+</odoo>
