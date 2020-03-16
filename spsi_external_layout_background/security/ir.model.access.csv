@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_spsi_external_layout_background_spsi_external_layout_background,spsi_external_layout_background.spsi_external_layout_background,model_spsi_external_layout_background_spsi_external_layout_background,,1,0,0,0

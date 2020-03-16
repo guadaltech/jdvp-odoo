@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="spsi_external_layout_background.list">
+      <field name="name">spsi_external_layout_background list</field>
+      <field name="model">spsi_external_layout_background.spsi_external_layout_background</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="spsi_external_layout_background.action_window">
+      <field name="name">spsi_external_layout_background window</field>
+      <field name="res_model">spsi_external_layout_background.spsi_external_layout_background</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="spsi_external_layout_background.action_server">
+      <field name="name">spsi_external_layout_background server</field>
+      <field name="model_id" ref="model_spsi_external_layout_background_spsi_external_layout_background"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="spsi_external_layout_background" id="spsi_external_layout_background.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="spsi_external_layout_background.menu_1" parent="spsi_external_layout_background.menu_root"/>
+    <menuitem name="Menu 2" id="spsi_external_layout_background.menu_2" parent="spsi_external_layout_background.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="spsi_external_layout_background.menu_1_list" parent="spsi_external_layout_background.menu_1"
+              action="spsi_external_layout_background.action_window"/>
+    <menuitem name="Server to list" id="spsi_external_layout_background" parent="spsi_external_layout_background.menu_2"
+              action="spsi_external_layout_background.action_server"/>
+    -->
+  </data>
+</odoo>

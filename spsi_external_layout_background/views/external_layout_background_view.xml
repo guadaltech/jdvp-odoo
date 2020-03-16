@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Adds all assets in Odoo -->
+        <template id="assets_backend" name="spsi_external_layout_background assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <!-- All links to CSS and JS files should be added in here. -->
+                <!-- <script type="text/javascript" src="/spsi_external_layout_background/static/src/js/pos_image_field.js"></script> -->
+                <link rel="stylesheet" type="text/css" href="/spsi_external_layout_background/static/src/scss/layout_background.scss"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
