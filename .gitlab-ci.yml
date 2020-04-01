@@ -1,0 +1,81 @@
+stages:
+  - sonarqube
+  - lint_check
+  - test_odoo
+
+lint_check:
+  stage: lint_check
+  image: guadaltech/fast-python:latest
+  variables:
+    DEBIAN_FRONTEND: "noninteractive"
+    VERSION: "11.0"
+    TESTS: "0"
+    MAKEPOT: "0"
+    LINT_CHECK: "1"
+  script:
+    - |
+      echo $CI_PROJECT_DIR \
+      && cd ${HOME} \
+      && git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools \
+      && export PATH=${HOME}/maintainer-quality-tools/travis:${PATH} \
+      && export TRAVIS_BUILD_DIR="${CI_PROJECT_DIR}" \
+      && travis_install_nightly \
+      && travis_run_tests \
+      && travis_after_tests_success
+  only:
+    - develop
+    - master
+
+sonarqube:
+  stage: sonarqube
+  image: guadaltech/gitlab-sonarqube:latest
+  variables:
+    SONAR_URL: "http://sonarqube.freyi.es"
+    SONAR_TOKEN: "01fa1765ab876714d3482827becd02eae0970986"
+    SONAR_PROJECT_KEY: "guadaltech-banuls-123321"
+    SONAR_GITLAB_COMMENT: "true"
+    SONAR_PUBLISH: "true"
+  script:
+    - |
+      sonar-scanner \
+        -Dsonar.ws.timeout=9000 \
+        -Dsonar.projectKey="$SONAR_PROJECT_KEY" \
+        -Dsonar.projectName="$CI_PROJECT_NAME-$CI_BUILD_REF_NAME" \
+        -Dsonar.host.url="$SONAR_URL" \
+        -Dsonar.login="$SONAR_TOKEN" \
+        -Dsonar.sources=. \
+        -Dsonar.exclusions=**/*.xml,**/*.js,**/*.css \
+        -Dsonar.sourceEncoding=UTF-8 \
+        -Dsonar.gitlab.project_id="$CI_PROJECT_ID" \
+        -Dsonar.gitlab.commit_sha="$CI_COMMIT_SHA" \
+        -Dsonar.gitlab.ref_name="$CI_COMMIT_REF_NAME"
+  only:
+    - develop
+    - master
+
+test_odoo:
+  stage: test_odoo
+  image: guadaltech/fast-python:latest
+  variables:
+    DEBIAN_FRONTEND: "noninteractive"
+    VERSION: "11.0"
+    TESTS: "1"
+    MAKEPOT: "0"
+    LINT_CHECK: "0"
+    ODOO_REPO: "OCA/OCB"
+  before_script:
+    - |
+      service postgresql start \
+      && sudo -u postgres psql -c "CREATE ROLE root; ALTER USER root WITH SUPERUSER; ALTER ROLE root WITH LOGIN;"
+  script:
+    - |
+      echo $CI_PROJECT_DIR \
+      && cd ${HOME} \
+      && git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools \
+      && export PATH=${HOME}/maintainer-quality-tools/travis:${PATH} \
+      && export TRAVIS_BUILD_DIR="${CI_PROJECT_DIR}" \
+      && travis_install_nightly \
+      && travis_run_tests
+  only:
+    - develop
+    - master
