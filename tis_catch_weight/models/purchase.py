@@ -2,8 +2,9 @@
 # Copyright (C) 2017-Today  Technaureus Info Solutions(<http://technaureus.com/>).
 from odoo import models, fields, api, _
 
+
 class PurchaseOrderLineCWUOM(models.Model):
-    _inherit  = 'purchase.order.line'
+    _inherit = 'purchase.order.line'
     
     @api.depends('product_qty', 'price_unit', 'taxes_id', 'product_cw_uom_qty')
     def _compute_amount(self):
@@ -26,7 +27,7 @@ class PurchaseOrderLineCWUOM(models.Model):
     @api.multi
     @api.onchange('product_id')
     def onchange_product_id(self):
-        res  = super(PurchaseOrderLineCWUOM,self).onchange_product_id()
+        res = super(PurchaseOrderLineCWUOM,self).onchange_product_id()
         self.product_cw_uom = self.product_id.cw_uom_id
         return res
     
@@ -35,6 +36,4 @@ class PurchaseOrderLineCWUOM(models.Model):
         res = super(PurchaseOrderLineCWUOM, self)._prepare_stock_moves(picking)
         res[0]['product_cw_uom'] = self.product_cw_uom.id
         res[0]['product_cw_uom_qty'] = self.product_cw_uom_qty
-                  
         return res
-     

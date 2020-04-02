@@ -2,6 +2,7 @@
 # Copyright (C) 2017-Today  Technaureus Info Solutions(<http://technaureus.com/>).
 from odoo import models, fields, api, _
 
+
 class AccountInvoiceLineCWUOM(models.Model):
     _inherit = 'account.invoice.line'
     
@@ -43,6 +44,7 @@ class AccountInvoiceLineCWUOM(models.Model):
     def _onchange_product_id(self):
         res  = super(AccountInvoiceLineCWUOM,self)._onchange_product_id()
         self.product_cw_uom = self.product_id.cw_uom_id
+
 
 class AccountInvoiceCWUOM(models.Model):
     _inherit = 'account.invoice'

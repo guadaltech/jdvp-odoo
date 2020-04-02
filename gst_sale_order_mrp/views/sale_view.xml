@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_mrp_link.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                <field name="bom_ids" invisible="1"/>
+                <field name="bom_id" groups="mrp.group_mrp_user" domain="[('id', 'in', bom_ids[0][2])]"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="after">
+                <field name="bom_ids" invisible="1"/>
+                <field name="bom_id" groups="mrp.group_mrp_user" domain="[('id', 'in', bom_ids)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mrp_production_form_view_cw" model="ir.ui.view">
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="sale_mrp_link.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='bom_id']" position="before">
+                    <label for="cw_qty"/>
+                    <div class="o_row">
+                        <field name="cw_qty" groups="tis_catch_weight.group_catch_weight"
+                               attrs="{'readonly': [('has_moves', '=', True)]}"/>
+                        <field name="product_cw_uom" options="{'no_open':True, 'no_create':True}"
+                               groups="tis_catch_weight.group_catch_weight"
+                               attrs="{'readonly': [('has_moves', '=', True)]}"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

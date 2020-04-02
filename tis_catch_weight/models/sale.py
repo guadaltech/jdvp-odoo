@@ -2,19 +2,29 @@
 # Copyright (C) 2017-Today  Technaureus Info Solutions(<http://technaureus.com/>).
 from odoo import models, fields, api, _
 
+
 class SaleOrderLineCWUOM(models.Model):
-    _inherit  = 'sale.order.line'
+    _inherit = 'sale.order.line'
     
-    @api.depends('product_uom_qty', 'discount', 'price_unit', 'tax_id', 'product_cw_uom_qty')
+    @api.depends('product_uom_qty', 'discount', 'price_unit',
+                 'tax_id', 'product_cw_uom_qty')
     def _compute_amount(self):
         if not self.env.user.has_group('tis_catch_weight.group_catch_weight'):
             return super(SaleOrderLineCWUOM, self)._compute_amount()
         for line in self:
             price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
             if line.product_id.sale_price_base == 'cwuom':
-                taxes = line.tax_id.compute_all(price, line.order_id.currency_id, line.product_cw_uom_qty, product=line.product_id, partner=line.order_id.partner_shipping_id)
+                taxes = line.tax_id.compute_all(price,
+                                                line.order_id.currency_id,
+                                                line.product_cw_uom_qty,
+                                                product=line.product_id,
+                                                partner=line.order_id.partner_shipping_id)
             else:
-                taxes = line.tax_id.compute_all(price, line.order_id.currency_id, line.product_uom_qty, product=line.product_id, partner=line.order_id.partner_shipping_id)
+                taxes = line.tax_id.compute_all(price,
+                                                line.order_id.currency_id,
+                                                line.product_uom_qty,
+                                                product=line.product_id,
+                                                partner=line.order_id.partner_shipping_id)
             line.update({
                 'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
                 'price_total': taxes['total_included'],
@@ -27,7 +37,7 @@ class SaleOrderLineCWUOM(models.Model):
     @api.multi
     @api.onchange('product_id')
     def product_id_change(self):
-        res  = super(SaleOrderLineCWUOM,self).product_id_change()
+        res = super(SaleOrderLineCWUOM,self).product_id_change()
         self.product_cw_uom = self.product_id.cw_uom_id
         return res
     
@@ -48,4 +58,3 @@ class SaleOrderLineCWUOM(models.Model):
                 'product_cw_uom_qty': self.product_cw_uom_qty,
         })
         return res
-        
