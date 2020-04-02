@@ -1,11 +1,16 @@
-[submodule "OCA/server-ux"]
-	path = OCA/server-ux
-	url = git@github.com:OCA/server-ux.git
+[submodule "OCA/reporting-engine"]
+	path = OCA/reporting-engine
+	url = git@github.com:OCA/reporting-engine.git
 	branch = 12.0
 
 [submodule "OCA/l10n-spain"]
 	path = OCA/l10n-spain
 	url = git@github.com:OCA/l10n-spain.git
+	branch = 12.0
+
+[submodule "OCA/server-ux"]
+	path = OCA/server-ux
+	url = git@github.com:OCA/server-ux.git
 	branch = 12.0
 
 [submodule "OCA/account-financial-reporting"]
@@ -21,11 +26,6 @@
 [submodule "OCA/product-pack"]
 	path = OCA/product-pack
 	url = git@github.com:OCA/product-pack.git
-	branch = 12.0
-
-[submodule "OCA/reporting-engine"]
-	path = OCA/reporting-engine
-	url = git@github.com:OCA/reporting-engine.git
 	branch = 12.0
 
 [submodule "OCA/sale-workflow"]
