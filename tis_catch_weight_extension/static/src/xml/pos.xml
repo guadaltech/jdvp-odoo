@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="tis_catch_weight_extension" xml:space="preserve">
+    <t t-extend="Orderline">
+        <t t-jquery=".product-name" t-operation="append">
+             <t t-if="line.get_product().sale_price_base == 'cwuom'">
+                 <i class="oe_link_icon fa fa-cubes line-custom_qty-icon oe_icon"></i>
+                 <!--                <i class="oe_link_icon fa fa-list oe_icon line-lot-icon oe_green"-->
+                 <!--                   t-if="line.has_valid_product_lot()"-->
+                 <!--                   aria-label="Valid product lot" role="img" title="Valid product lot"/>-->
+                 <!--                 <i class="oe_link_icon fa fa-list oe_icon line-lot-icon oe_red" t-if="!line.has_valid_product_lot()"-->
+                 <!--                    aria-label="Invalid product lot" role="img" title="Invalid product lot"/>-->
+            </t>
+        </t>
+        <t t-jquery=".info-list" t-operation="prepend">
+            <t t-if="line.get_sale_price_base() and (line.get_quantity_str() !== '1' || line.selected)">
+                <li class="info">
+                    <em>
+                        <t t-esc="line.get_quantity_custom()"/>
+                    </em>
+                    <t t-esc="line.get_unit_custom().name"/>
+                    at
+                    <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')"/>
+                    /
+                    <t t-esc="line.get_unit_custom().name"/>
+                </li>
+            </t>
+        </t>
+    </t>
+</templates>

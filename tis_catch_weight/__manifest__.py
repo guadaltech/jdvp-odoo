@@ -16,6 +16,7 @@
     'license': 'Other proprietary',
     'depends': [
         'account',
+        'sale',
         'sale_management', 
         'purchase',
         'stock',

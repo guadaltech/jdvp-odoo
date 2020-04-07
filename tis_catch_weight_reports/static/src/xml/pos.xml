@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="tis_catch_weight_reports" xml:space="preserve">
+    <t t-extend="PosTicket">
+        <t t-jquery="tr[t-foreach*='orderlines'] > td:nth-child(2)" t-operation="append">
+           <t t-if="orderline.get_unit_custom()">
+                <span>/</span>
+                <t t-esc="orderline.get_quantity_custom()"/>
+                <t t-esc="orderline.get_unit_custom().name"/>
+           </t>
+        </t>
+    </t>
+<!--    <t t-extend="XmlReceipt">-->
+<!--        <t t-jquery="t[t-foreach*='receipt.orderlines'] > t:nth-child(3) > line:nth-child(2) > left" t-operation="append">-->
+<!--            <t t-if="line.product_cw_uom_qty">-->
+<!--                <t t-esc="line.product_cw_uom_qty"/>-->
+<!--            </t>-->
+<!--            <t t-if="line.product.cw_uom_id">-->
+<!--                <t t-esc="line.product.cw_uom_id.name"/>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </t>-->
+</templates>
