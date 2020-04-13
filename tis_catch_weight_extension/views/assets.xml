@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <!--            <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/fonts.scss"/>-->
+            <script type="text/javascript" src="/tis_catch_weight_extension/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/tis_catch_weight_extension/static/src/js/screens.js"></script>
+            <script type="text/javascript" src="/tis_catch_weight_extension/static/src/js/popups.js"></script>
+        </xpath>
+    </template>
+</odoo>

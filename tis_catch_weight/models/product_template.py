@@ -12,4 +12,3 @@ class ProductTemplateCWUOM(models.Model):
                                     default=_default_cw_uom)
     sale_price_base = fields.Selection([('uom','UOM'),('cwuom','CW-UOM')], string="Sale Price Base")
     purchase_price_base = fields.Selection([('uom','UOM'),('cwuom','CW-UOM')], string="Purchase Price Base")
-    

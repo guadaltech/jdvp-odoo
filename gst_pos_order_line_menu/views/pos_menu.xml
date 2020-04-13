@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_pos_order_line_filter" model="ir.ui.view">
+        <field name="name">pos.order.line.select</field>
+		<field name="model">pos.order.line</field>
+		<field name="arch" type="xml">
+			<search string="Search Pos Order">
+				<field name="order_id"/>
+				<field name="product_id"/>
+				<group expand="0" string="Group By">
+					<filter string="Product" name="product" domain="[]" context="{'group_by':'product_id'}"/>
+					<filter string="Order" name="order" domain="[]" context="{'group_by':'order_id'}"/>
+				</group>
+			</search>
+		</field>
+    </record>
+
+	<record id="gst_view_pos_order_line" model="ir.ui.view">
+        <field name="name">pos.order.line.tree</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <tree string="POS Order lines" create="false">
+				<field name="order_id"/>
+				<field name="partner_id"/>
+				<field name="date_order"/>
+                <field name="product_id"/>
+                <field name="qty" sum="Total qty"/>
+				<field name="uom_id"/>
+				<field name="product_cw_uom_qty" sum="Total qty" groups="tis_catch_weight.group_catch_weight"/>
+				<field name="product_cw_uom" groups="tis_catch_weight.group_catch_weight"/>
+                <field name="discount" widget="monetary"/>
+                <field name="price_unit" widget="monetary"/>
+				<field name="tax_ids" widget="many2many_tags"/>
+                <field name="price_subtotal" sum="Sum of subtotals" widget="monetary"/>
+                <field name="price_subtotal_incl" sum="Sum of subtotals" widget="monetary"/>
+            </tree>
+        </field>
+    </record>
+
+	<record id="action_pos_order_line" model="ir.actions.act_window">
+		<field name="name">Pos Orders Line</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">pos.order.line</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,kanban,form,pivot,graph,activity</field>
+		<field name="search_view_id" ref="view_pos_order_line_filter"/>
+		<field name="view_id" ref="gst_view_pos_order_line"/>
+		<field name="context">{}</field>
+		<field name="domain">[]</field>
+	</record>
+
+	<menuitem id="menu_sale_order_line"
+			name="Order Lines"
+			action="action_pos_order_line"
+			parent="point_of_sale.menu_point_of_sale"
+			sequence="2" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+</odoo>

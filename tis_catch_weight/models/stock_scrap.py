@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 
+
 class StockScrap(models.Model):
     _inherit = 'stock.scrap'
     

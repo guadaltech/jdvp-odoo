@@ -9,3 +9,4 @@ from . import stock_move
 from . import stock_scrap
 from . import stock_move_line
 from . import stock_immediate_transfer
+from . import stock_picking

@@ -1,0 +1,102 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* gst_sale_order_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-08 08:15+0000\n"
+"PO-Revision-Date: 2020-04-08 08:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__bom_id
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_sale_order_line__bom_id
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_sale_order_line__bom_ids
+msgid "BoM"
+msgstr "LdM"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model,name:gst_sale_order_mrp.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__id
+msgid "ID"
+msgstr ""
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__write_uid
+msgid "Last Updated by"
+msgstr "Última modificación realizada por"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__write_date
+msgid "Last Updated on"
+msgstr "Última modificación"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner__partner_bom_ids
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_users__partner_bom_ids
+#: model_terms:ir.ui.view,arch_db:gst_sale_order_mrp.view_partner_form_inherit
+msgid "Partner Bom"
+msgstr "Lista de Materiales"
+
+#. module: gst_sale_order_mrp
+#: code:addons/gst_sale_order_mrp/model/sale.py:40
+#, python-format
+msgid "Please, select the partner."
+msgstr "Por favor, primero seleccione el cliente."
+
+#. module: gst_sale_order_mrp
+#: model:ir.model.fields,field_description:gst_sale_order_mrp.field_res_partner_bom__product_tmpl_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model,name:gst_sale_order_mrp.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de Producción"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model,name:gst_sale_order_mrp.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea Pedido de Venta"
+
+#. module: gst_sale_order_mrp
+#: model:ir.model,name:gst_sale_order_mrp.model_res_partner_bom
+msgid "res.partner.bom"
+msgstr ""
+

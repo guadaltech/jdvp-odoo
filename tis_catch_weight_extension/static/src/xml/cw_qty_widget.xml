@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CwQtyLineWidget">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text">
+                <header class="title"><t t-esc=" widget.options.title || '' " /></header>
+                <main class='cw_qty-lines'>
+                    <input type="text"
+                        class="popup-input cwqty-line-input"
+                        placeholder="Cw qty"/>
+<!--                    t-att-value="widget.options.order_line"-->
+<!--                    <select class='cw_uom-lines'>-->
+<!--                        <t t-foreach="widget.pos.units" t-as="unit">-->
+<!--                            <option class="button unit" t-att-value="unit.id">-->
+<!--                                <t t-esc="unit.name" />-->
+<!--                            </option>-->
+<!--                        </t>-->
+<!--                    </select>-->
+                </main>
+                <footer class="footer">
+                    <div class="button confirm">
+                        Ok
+                    </div>
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>
