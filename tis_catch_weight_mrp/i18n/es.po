@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tis_catch_weight_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-08 08:22+0000\n"
+"PO-Revision-Date: 2020-04-08 08:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tis_catch_weight_mrp
+#: model:ir.model.fields,field_description:tis_catch_weight_mrp.field_mrp_production__cw_qty
+msgid "CW-Qty"
+msgstr "Cantidad UdM-CP"
+
+#. module: tis_catch_weight_mrp
+#: model:ir.model.fields,field_description:tis_catch_weight_mrp.field_mrp_production__product_cw_uom
+msgid "CW-UOM"
+msgstr "UdM-CP"
+
+#. module: tis_catch_weight_mrp
+#: model:ir.model,name:tis_catch_weight_mrp.model_change_production_qty
+msgid "Change Production Qty"
+msgstr "Cambiar Cantidad"
+
+#. module: tis_catch_weight_mrp
+#: model:ir.model,name:tis_catch_weight_mrp.model_mrp_production
+msgid "Production Order"
+msgstr "Orden de Producción"
+
+#. module: tis_catch_weight_mrp
+#: model:ir.model.fields,field_description:tis_catch_weight_mrp.field_change_production_qty__cw_qty
+msgid "Quantity CW To Produce"
+msgstr "Cantidad UdM-CP a producir"
+

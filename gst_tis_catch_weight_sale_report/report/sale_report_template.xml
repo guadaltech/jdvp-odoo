@@ -36,7 +36,12 @@
 					</t>
 				</t>
 				<tr class="border-black o_total">
-					<td><strong>Total</strong></td>
+					<td><strong>Total
+						<t t-if="without_iva">
+							<br/>
+							(IVA Included)
+						</t>
+					</strong></td>
 					<td class="text-right">
 						<span t-field="doc.amount_total"/>
 					</td>

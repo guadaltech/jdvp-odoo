@@ -51,9 +51,8 @@ class AccountInvoiceCWUOM(models.Model):
         
     def _prepare_invoice_line_from_po_line(self, line):
         res = super(AccountInvoiceCWUOM, self). _prepare_invoice_line_from_po_line(line)
-        res.update({
-                    'product_cw_uom': line.product_cw_uom.id,
-                    })
+        res.update({'product_cw_uom': line.product_cw_uom.id,
+                    'product_cw_uom_qty': line.product_cw_uom_qty})
         return res
 
     @api.multi
