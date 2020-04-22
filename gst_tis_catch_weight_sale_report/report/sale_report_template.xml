@@ -2,7 +2,7 @@
 <odoo>
 
 	<template id="report_sale_catchweight_without_iva" inherit_id="sale.report_saleorder_document">
-		<xpath expr="//table[@class='table table-sm']" position="replace">
+		<xpath expr="//table[hasclass('table','table-sm')]" position="replace">
 			<table class="table table-sm">
 				<tr class="border-black o_subtotal" style="" t-if="not without_iva">
 					<td><strong>Subtotal</strong></td>
