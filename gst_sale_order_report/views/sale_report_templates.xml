@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="gst_sale_order_report_document_taxes" inherit_id="sale.report_saleorder_document">
-        <xpath expr="//table[hasclass('table','table-sm','o_main_table')]/thead/tr/th[last()]"
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[last()]"
                position="replace">
             <th class="text-right">
                 <t>Amount</t>
@@ -10,7 +10,7 @@
                 <t>Total Price</t>
             </th>
         </xpath>
-        <xpath expr="//table[hasclass('table,'table-sm','o_main_table')]/tbody/t[@t-foreach='doc.order_line']/tr/t[1]/td[last()]"
+        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/t[@t-foreach='doc.order_line']/tr/t[1]/td[last()]"
                position="replace">
             <td class="text-right o_price_total">
                 <span t-field="line.price_subtotal"/>
@@ -19,7 +19,7 @@
                 <span t-field="line.price_total"/>
             </td>
         </xpath>
-        <xpath expr="//div[hasclass('clearfix')]"
+        <xpath expr="//div[@class='clearfix']"
                position="after">
             <br/>
             <div class="gst_taxes">
