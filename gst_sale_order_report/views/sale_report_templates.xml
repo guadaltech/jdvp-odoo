@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="gst_sale_order_report_document_taxes" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[last()]"
+               position="replace">
+            <th class="text-right">
+                <t>Amount</t>
+            </th>
+            <th class="text-right">
+                <t>Total Price</t>
+            </th>
+        </xpath>
+        <xpath expr="//table[@class='table table-sm o_main_table']/tbody/t[@t-foreach='doc.order_line']/tr/t[1]/td[last()]"
+               position="replace">
+            <td class="text-right o_price_total">
+                <span t-field="line.price_subtotal"/>
+            </td>
+            <td class="text-right o_price_total">
+                <span t-field="line.price_total"/>
+            </td>
+        </xpath>
+        <xpath expr="//div[@class='clearfix']"
+               position="after">
+            <br/>
+            <div class="gst_taxes">
+                <div id="taxes_broken_down" class="row" name="Taxes Broken Down">
+                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm">
+                            <tr>
+                                <th>
+                                    Tax name
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                            </tr>
+                            <t t-foreach="doc._get_taxes()" t-as="tax_dict">
+                                <tr style="">
+                                    <td>
+                                        <t t-esc="tax_dict[0]"></t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="tax_dict[1]"
+                                           t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'></t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
